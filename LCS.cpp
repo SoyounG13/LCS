@@ -1,11 +1,41 @@
 #include "LCS.h"
 
-void LCS::Input()
+bool LCS::Input()
 {
 	cout << "기준 DNA : ";
 	cin >> X;
 	cout << "비교 DNA : ";
 	cin >> Y;
+
+	try
+	{
+		Check();
+	}
+	catch (int num)
+	{
+		if (num == 0)
+			cout << "문자의 길이가 10자 이상이어야 합니다.";
+		else
+			cout << "ACGT 이외의 문자가 있습니다,";
+		return false;
+	}
+
+	return true;
+}
+void LCS::Check()
+{
+	if (X.length() < 10 || Y.length() < 10)
+		throw 0;
+	for (int i = 0; i < X.length(); i++)
+	{
+		if (X[i] != 'A' && X[i] != 'C' && X[i] != 'G' && X[i] != 'T')
+			throw 1;
+	}
+	for (int i = 0; i < Y.length(); i++)
+	{
+		if (Y[i] != 'A' && Y[i] != 'C' && Y[i] != 'G' && Y[i] != 'T')
+			throw 1;
+	}
 }
 void LCS::LCS_LENGTH()
 {

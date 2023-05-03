@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <stdexcept>
 using namespace std;
 
 class LCS
@@ -12,7 +13,8 @@ private:
 public:
 	string X;
 	string Y;
-	void Input();
+	bool Input();
+	void Check();
 	void LCS_LENGTH();
 	int PRINT_LCS(int i, int j);
 	void Print();

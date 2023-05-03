@@ -4,7 +4,8 @@ using namespace std;
 int main()
 {
 	LCS lcs;
-	lcs.Input();
+	if (!lcs.Input())
+		return 0;
 	lcs.LCS_LENGTH();
 	lcs.Print();
 }
